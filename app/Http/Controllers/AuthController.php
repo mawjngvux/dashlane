@@ -11,8 +11,11 @@ class AuthController extends Controller
         if (Auth::id() > 0) {
             return redirect()->route('showCredentials');
         }
-
         return view('Login');
+    }
+
+    function showRegister(){
+        return view('Register');
     }
 
     function login(Request $request){

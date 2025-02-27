@@ -14,13 +14,13 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         DB::table('users')->insert([
-            'name' => 'admin1',
-            'image' => 'default.jpg', 
-            'description' => 'admin',
-            'user_agent' => 'admin',
-            'ip' => '127.0.0.1',
-            'email' => 'admin1@gmail.com',
-            'password' => bcrypt('admin1'),
+            'name' => 'admin0',
+            'image' => 'default0.jpg', 
+            'description' => 'admin0',
+            'user_agent' => 'admin0',
+            'ip' => '127.0.0.0',
+            'email' => 'admin0@gmail.com',
+            'password' => bcrypt('admin0'),
             'email_verified_at' => now(),
             'created_at' => now(),
             'updated_at' => now(),
