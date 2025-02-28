@@ -19,110 +19,30 @@
         <div id="email-section">
             <h2 class="text-2xl font-semibold mb-2">Start using Dashlane for free</h2>
             <p class="text-gray-600 text-sm mb-4">Enter the email you'd like to associate with your Dashlane account.</p>
-            <form id="emailForm" class="space-y-4">
-                <label for="email" class="text-sm font-medium">Email</label>
-                <input id="email" name="email" type="email" placeholder="Enter your email address..." required 
-                    class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <button type="submit" class="w-full bg-teal-600 text-white py-2 rounded-lg hover:bg-teal-700 transition">Next</button>
-            </form>
-        </div>
-
-        <div id="password-section" class="hidden flex flex-col justify-center items-center h-full">
-            <form id="passwordForm" class="w-full max-w-sm space-y-4">
-                <h2 class="text-2xl font-semibold text-center mb-4">Create your password</h2>
-                <label for="password" class="text-sm font-medium">Password</label>
-                <input id="password" name="password" type="password" placeholder="Enter your password..." required 
-                    class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <label for="password_confirmation" class="text-sm font-medium">Confirm Password</label>
-                <input id="password_confirmation" name="password_confirmation" type="password" placeholder="Confirm password..." required 
-                    class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <button type="submit" class="w-full bg-teal-600 text-white py-2 rounded-lg hover:bg-teal-700 transition">Sign up</button>
-            </form>
+            <form action="{{route('register')}}" method="POST" class="mt-4">
+                    @csrf
+                    <div class="mb-4"> 
+                        <label for="exampleInputEmail1" class="block text-gray-700 text-sm font-bold mb-2">Email address</label>
+                        <input type="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleInputEmail1" value="{{old('email')}}" aria-describedby="emailHelp">
+                        <p class="text-gray-600 text-xs italic mt-2">We'll never share your email with anyone else.</p>
+                    </div>
+                    <div class="mb-4">
+                        <label for="exampleInputName1" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
+                        <input type="input" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="exampleInputName1">
+                    </div>
+                    <div class="mb-4">
+                        <label for="exampleInputConfirmPassword1" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                        <input type="password" name="password_confirmation" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="exampleInputConfirmPassword1">
+                    </div>
+                    <div class="mb-4">
+                        <label for="exampleInputPassword1" class="block text-gray-700 text-sm font-bold mb-2">Confirm Password</label>
+                        <input type="password" name="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="exampleInputPassword1">
+                    </div>
+                    <div class="flex justify-center">
+                        <button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
+                    </div>
+                </form>
         </div>
     </div>
-
-    <script>
-        const emailForm = document.getElementById('emailForm');
-        const passwordForm = document.getElementById('passwordForm');
-        const emailSection = document.getElementById('email-section');
-        const passwordSection = document.getElementById('password-section');
-
-        emailForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-
-            try {
-                const response = await fetch('/check-email', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': '{{ csrf_token() }}' },
-                    body: JSON.stringify({ email })
-                });
-
-                const data = await response.json();
-                if (data.valid) {
-                    emailSection.classList.add('animate-fadeOut');
-                    setTimeout(() => {
-                        emailSection.classList.add('hidden');
-                        passwordSection.classList.remove('hidden');
-                        passwordSection.classList.add('animate-fadeIn');
-                    }, 500);
-                } else {
-                    alert('Invalid email. Please try another one.');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('An error occurred. Please try again.');
-            }
-        });
-
-        passwordForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const password = document.getElementById('password').value;
-            const passwordConfirmation = document.getElementById('password_confirmation').value;
-
-            if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}$/.test(password)) {
-                alert('Password must be at least 6 characters long, include uppercase, lowercase, number, and special character.');
-                return;
-            }
-
-            if (password !== passwordConfirmation) {
-                alert('Passwords do not match.');
-                return;
-            }
-
-            try {
-                const response = await fetch('/register', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': '{{ csrf_token() }}' },
-                    body: JSON.stringify({ email: document.getElementById('email').value, password })
-                });
-
-                const data = await response.json();
-                if (data.success) {
-                    window.location.href = '/login'; 
-                } else {
-                    alert('Registration failed. Please try again.');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('An error occurred during registration.');
-            }
-        });
-
-        tailwind.config = {
-            theme: {
-                extend: {
-                    keyframes: {
-                        fadeIn: { '0%': { opacity: 0 }, '100%': { opacity: 1 } },
-                        fadeOut: { '0%': { opacity: 1 }, '100%': { opacity: 0 } },
-                    },
-                    animation: {
-                        fadeIn: 'fadeIn 0.5s ease-out',
-                        fadeOut: 'fadeOut 0.5s ease-in',
-                    }
-                }
-            }
-        };
-    </script>
 </body>
 </html>

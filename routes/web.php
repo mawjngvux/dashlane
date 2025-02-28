@@ -16,7 +16,12 @@ Route::get('/login', [AuthController::class, 'showLogin'])->name('showLogin')->m
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'showRegister'])->name('showRegister');
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::get('/verify-email/{token}', [AuthController::class, 'verifyEmail'])->name('verifyEmail');
 Route::get('/forgot', [AuthController::class, 'showForgotPassword'])->name('forgot');
+Route::post('/forgot', [AuthController::class, 'sendResetLink'])->name('sendResetLink');
+Route::get('/reset-password/{token}', [AuthController::class, 'showResetPasswordForm']);
+Route::post('/reset-password', [AuthController::class, 'resetPassword'])->name('resetPassword');
 
 
 Route::get('/credentials', [CredentialsController::class, 'showCredentials'])->name('showCredentials')->middleware(AuthMiddleware::class);
