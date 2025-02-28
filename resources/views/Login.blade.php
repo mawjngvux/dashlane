@@ -56,7 +56,7 @@
                     </div>
                     <div class="flex justify-between items-center text-sm text-gray-600 mt-2">
                         <span>Forgot your password?</span>
-                        <a href="/forgot-password" class="text-teal-600 hover:underline">Reset it here</a>
+                        <a href="{{route('forgot')}}" class="text-teal-600 hover:underline">Reset it here</a>
                     </div>
                 </form>
             </div>

@@ -18,6 +18,10 @@ class AuthController extends Controller
         return view('Register');
     }
 
+    function showForgotPassword(){
+        return view('ForgotPassword');
+    }
+
     function login(Request $request){
         $validated = $request->validate([
             'email' => 'required',
@@ -29,6 +33,7 @@ class AuthController extends Controller
         }
         return back()->withErrors(['login' => 'Invalid email or password!'])->withInput();
     }
+
 
     function logout(Request $request){
         Auth::logout();

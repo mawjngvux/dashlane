@@ -16,6 +16,7 @@ Route::get('/login', [AuthController::class, 'showLogin'])->name('showLogin')->m
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'showRegister'])->name('showRegister');
+Route::get('/forgot', [AuthController::class, 'showForgotPassword'])->name('forgot');
 
 
 Route::get('/credentials', [CredentialsController::class, 'showCredentials'])->name('showCredentials')->middleware(AuthMiddleware::class);
