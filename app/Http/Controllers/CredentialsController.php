@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class CredentialsController extends Controller
 {
     function showCredentials(){
-        return view('Credentials');
+        return view('pages.Credentials');
     }
 }

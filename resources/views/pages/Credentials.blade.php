@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.app')
 
 @section('content')
 <div class="flex h-screen">
@@ -45,7 +45,7 @@
     </aside>
 
     <!-- Main Content -->
-    <main class="flex-1 p-6">
+    <main class="flex-1 p-6 bg-gray-100">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-bold">Logins</h1>
             <a href="{{route('logout')}}"><button class="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600"><i class="fa-solid fa-plus"></i> Logout</button></a>
@@ -66,4 +66,4 @@
         </div>
     </main>
 </div>
-@endsection
+@endsection        

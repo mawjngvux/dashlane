@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Password</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="h-screen flex items-center justify-center bg-gray-100">
+@extends('layouts.app')
+
+@section('content')
+
+<div class="h-screen flex items-center justify-center bg-gray-100">
     <div class="w-full max-w-md bg-white p-6 rounded-lg shadow-lg">
         <h2 class="text-2xl font-bold text-center">Set New Password</h2>
         <form action="{{ route('resetPassword') }}" method="POST" class="mt-4">
@@ -29,5 +25,5 @@
             <button type="submit" class="w-full bg-teal-600 text-white py-2 rounded hover:bg-teal-700">Reset Password</button>
         </form>
     </div>
-</body>
-</html>
+</div>
+@endsection        

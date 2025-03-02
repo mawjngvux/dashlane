@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forgot Password - Dashlane</title>
-    <link rel="icon" href="https://cdn.dashlane.com/logo/dashlane-icon.png" type="image/png">
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="h-screen flex">
+@extends('layouts.app')
+
+@section('content')
+<div class="h-screen flex">
     <div class="w-3/4 bg-gray-100 flex flex-col justify-center px-16 relative">
-        <img src="https://cdn.dashlane.com/logo/dashlane-icon.png" alt="Dashlane Logo" class="absolute top-6 left-6 w-20 rounded-full shadow-lg">
+        <img src="{{asset('images/dashlane_logo.jfif')}}" alt="Dashlane Logo" class="absolute top-6 left-6 w-20 rounded-full shadow-lg">
     </div>
 
     <div class="w-1/4 flex flex-col justify-center px-10 py-6 relative">
@@ -26,5 +20,5 @@
             </form>
         </div>
     </div>
-</body>
-</html>
+</div>
+@endsection        
