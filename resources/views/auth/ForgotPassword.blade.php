@@ -7,6 +7,11 @@
     </div>
 
     <div class="w-1/4 flex flex-col justify-center px-10 py-6 relative">
+        <div class="flex justify-end items-center space-x-2 absolute top-6 right-6">
+            <p class="text-sm text-gray-600">Remember your password?</p>
+            <a href="{{route('login')}}" class="bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition">Login</a>
+        </div>
+
         <div class="w-full max-w-sm mx-auto space-y-6">
             <h2 class="text-2xl font-semibold mb-2">Forgot Password</h2>
             <p class="text-gray-600 text-sm mb-4">Enter your email to receive a verification code.</p>
@@ -21,4 +26,4 @@
         </div>
     </div>
 </div>
-@endsection        
+@endsection

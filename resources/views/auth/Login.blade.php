@@ -18,7 +18,7 @@
                 <h2 class="text-3xl font-semibold mb-2 text-gray-800">Sign in to Dashlane</h2>
 
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <form action="{{route('login')}}" method="POST" class="mt-4">
+                    <form id="loginForm" action="{{route('login')}}" method="POST" class="mt-4">
                         @csrf
                         <div class="mb-4">
                             <label for="exampleInputEmail1" class="block text-gray-700 text-sm font-bold mb-2">Email address</label>
@@ -38,7 +38,7 @@
                             <span>Forgot your password?</span>
                             <a href="{{route('forgot')}}" class="text-teal-600 hover:underline">Reset it here</a>
                         </div>
-                        <div class="mb-4">
+                        <div class="mb-4 flex items-center">
                             <input type="checkbox" name="remember" id="rememberMe" class="mr-2 leading-tight">
                             <label for="rememberMe" class="text-sm text-gray-700">Remember me?</label>
                         </div>
@@ -51,4 +51,30 @@
             </div>
         </div>
     </div>
-@endsection        
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailInput = document.getElementById('exampleInputEmail1');
+            const passwordInput = document.getElementById('exampleInputPassword1');
+            const rememberMeCheckbox = document.getElementById('rememberMe');
+
+            if (localStorage.getItem('rememberMe') === 'true') {
+                emailInput.value = localStorage.getItem('email');
+                passwordInput.value = localStorage.getItem('password');
+                rememberMeCheckbox.checked = true;
+            }
+
+            document.getElementById('loginForm').addEventListener('submit', function() {
+                if (rememberMeCheckbox.checked) {
+                    localStorage.setItem('email', emailInput.value);
+                    localStorage.setItem('password', passwordInput.value);
+                    localStorage.setItem('rememberMe', 'true');
+                } else {
+                    localStorage.removeItem('email');
+                    localStorage.removeItem('password');
+                    localStorage.setItem('rememberMe', 'false');
+                }
+            });
+        });
+    </script>
+@endsection
