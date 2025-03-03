@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD:resources/views/layout/app.blade.php
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     @vite('resources/css/app.css')
@@ -15,38 +14,38 @@
         <h2 class="text-lg font-semibold mb-4">Search Dashlane</h2>
         <input type="text" placeholder="Search" autocomplete="off" class="w-full mb-4 p-2 border rounded" />
         <nav class="space-y-2 text-gray-700">
-            <a href="{{ route('showCredentials') }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-gray-200 font-semibold">
+            <a href="{{ route('showCredentials') }}" class="flex items-center gap-2 py-2 px-3 rounded {{ request()->routeIs('showCredentials') ? 'bg-teal-500 text-white' : 'hover:bg-gray-200' }}">
                 <i class="fa-solid fa-lock"></i> Logins
             </a>
-            <a href="{{ route('showPasskeys') }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-gray-200">
+            <a href="{{ route('showPasskeys') }}" class="flex items-center gap-2 py-2 px-3 rounded {{ request()->routeIs('showPasskeys') ? 'bg-teal-500 text-white' : 'hover:bg-gray-200' }}">
                 <i class="fa-solid fa-key"></i> Passkeys
             </a>
-            <a href="{{ route('showPayments') }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-gray-200">
+            <a href="{{ route('showPayments') }}" class="flex items-center gap-2 py-2 px-3 rounded {{ request()->routeIs('showPayments') ? 'bg-teal-500 text-white' : 'hover:bg-gray-200' }}">
                 <i class="fa-solid fa-credit-card"></i> Payments
             </a>
-            <a href="{{ route('showSecureNotes') }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-gray-200">
+            <a href="{{ route('showSecureNotes') }}" class="flex items-center gap-2 py-2 px-3 rounded {{ request()->routeIs('showSecureNotes') ? 'bg-teal-500 text-white' : 'hover:bg-gray-200' }}">
                 <i class="fa-solid fa-note-sticky"></i> Secure Notes
             </a>
-            <a href="{{ route('showPersonalInfo') }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-gray-200">
+            <a href="{{ route('showPersonalInfo') }}" class="flex items-center gap-2 py-2 px-3 rounded {{ request()->routeIs('showPersonalInfo') ? 'bg-teal-500 text-white' : 'hover:bg-gray-200' }}">
                 <i class="fa-solid fa-user"></i> Personal Info
             </a>
-            <a href="{{ route('showIds') }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-gray-200">
+            <a href="{{ route('showIds') }}" class="flex items-center gap-2 py-2 px-3 rounded {{ request()->routeIs('showIds') ? 'bg-teal-500 text-white' : 'hover:bg-gray-200' }}">
                 <i class="fa-solid fa-id-card"></i> IDs
             </a>
-            <a href="{{ route('showSharingCenter') }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-gray-200">
+            <a href="{{ route('showSharingCenter') }}" class="flex items-center gap-2 py-2 px-3 rounded {{ request()->routeIs('showSharingCenter') ? 'bg-teal-500 text-white' : 'hover:bg-gray-200' }}">
                 <i class="fa-solid fa-share-nodes"></i> Sharing Center
             </a>
         </nav>
 
         <div class="mt-6">
             <p class="text-xs text-gray-500">SECURITY TOOLS</p>
-            <a href="{{ route('showPasswordHealth') }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-gray-200">
+            <a href="{{ route('showPasswordHealth') }}" class="flex items-center gap-2 py-2 px-3 rounded {{ request()->routeIs('showPasswordHealth') ? 'bg-teal-500 text-white' : 'hover:bg-gray-200' }}">
                 <i class="fa-solid fa-heart-pulse"></i> Password Health
             </a>
-            <a href="{{ route('showDarkwebMonitoring') }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-gray-200">
+            <a href="{{ route('showDarkwebMonitoring') }}" class="flex items-center gap-2 py-2 px-3 rounded {{ request()->routeIs('showDarkwebMonitoring') ? 'bg-teal-500 text-white' : 'hover:bg-gray-200' }}">
                 <i class="fa-solid fa-mask"></i> Dark Web Monitoring
             </a>
-            <a href="{{ route('showVPN') }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-gray-200">
+            <a href="{{ route('showVPN') }}" class="flex items-center gap-2 py-2 px-3 rounded {{ request()->routeIs('showVPN') ? 'bg-teal-500 text-white' : 'hover:bg-gray-200' }}">
                 <i class="fa-solid fa-wifi"></i> VPN
             </a>
         </div>
@@ -66,16 +65,5 @@
     </main>
 </div>
 
-=======
-    <title>Dashlane</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" href="{{asset('images/dashlane_logo.jfif')}}" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-    <div class="h-screen flex">
-        @yield('content')
-    </div>
->>>>>>> 428d2e5346776dedcd3b9be0488e93c3b2182197:resources/views/layouts/app.blade.php
 </body>
 </html>

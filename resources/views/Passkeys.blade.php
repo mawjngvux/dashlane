@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.app')
 
 @section('title', 'Passkeys')
 
@@ -25,21 +25,21 @@
     <div class="flex flex-col h-full">
 
         {{-- Header --}}
-        <div class="p-4 border
-        -b flex items-center gap-3 bg-gray-50">
-            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
-                <i class="fa-solid fa-key text-gray-600"></i>
-            </div>
-            <h2 class="text-lg font-semibold text-gray-800">Add a passkey</h2>
-            <button onclick="forceCloseAddPasskeyForm()" class="ml-auto text-gray-500 hover:text-red-500">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
+        <div class="flex flex-col h-full">
+    {{-- Header --}}
+    <div class="p-4 border-b flex items-center gap-3 bg-gray-50">
+        <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+            <i class="fa-solid fa-key text-gray-600"></i>
         </div>
+        <h2 class="text-lg font-semibold text-gray-800">Add a passkey</h2>
+        <button onclick="forceCloseAddPasskeyForm()" class="ml-auto text-gray-500 hover:text-red-500">
+            <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+    </div>
         
         {{-- Form --}}
-        <div class="flex-1 p-4 space-y-6 bg-gray-50">
             
-        <div class="p-4 space-y-6">
+        <div class="flex-1 p-4 space-y-6 bg-gray-50 overflow-y-auto">
     <div>
         <h3 class="text-sm font-semibold text-gray-700 mb-2">Passkey details</h3>
         <div class="space-y-4">
@@ -75,16 +75,11 @@
     </div>
 </div>
 
-            {{-- Save --}}
-            <div class="flex justify-end">
-                <button class="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600">
-                    <i class="fa-solid fa-save"></i> Save
-                </button>
-            </div>
-            {{-- Footer --}}
-            <div class="p-4 flex justify-end gap-2">
-                <button onclick="forceCloseAddPasskeyForm()" class="bg-gray-100 px-4 py-2 rounded text-gray-700 hover:bg-gray-200">Cancel</button>
-                <button class="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600">Save</button>
+            
+    {{-- Footer (nút Cancel & Save) --}}
+        <div class="p-4 border-t bg-white flex justify-end gap-2">
+            <button onclick="forceCloseAddPasskeyForm()" class="bg-gray-100 px-4 py-2 rounded text-gray-700 hover:bg-gray-200">Cancel</button>
+            <button class="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600">Save</button>
         </div>
     </div>
 </div>
@@ -108,7 +103,7 @@ function openAddPasskeyForm() {
         input.addEventListener('input', markFormDirty);
     });
 
-    window.addEventListener('beforeunload', handleBeforeUnload);
+    window.addEventListener('beforeunload', confirmExit);
 }
 
 function markFormDirty() {
@@ -128,7 +123,7 @@ function forceCloseAddPasskeyForm() {
     }, 500);
 
     isFormDirty = false;
-    window.removeEventListener('beforeunload', handleBeforeUnload);
+    window.removeEventListener('beforeunload', confirmExit);
 }
 
 function closeAddPasskeyForm() {
@@ -141,11 +136,14 @@ function closeAddPasskeyForm() {
     }
 }
 
-function handleBeforeUnload(e) {
-    if (isFormDirty) {
-        e.preventDefault();
-        e.returnValue = '';
+    function markFormDirty() {
+    isFormDirty = true;
     }
+function confirmExit(e) {
+    if (!isFormDirty) return;
+
+    e.preventDefault();
+    e.returnValue = '';
 }
 
 </script>
