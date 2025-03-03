@@ -16,20 +16,19 @@ class AuthController extends Controller
         if (Auth::id() > 0) {
             return redirect()->route('showCredentials');
         }
-        return view('Login');
+        return view('auth.Login');
     }
 
     function showRegister(){
-        return view('Register');
+        return view('auth.Register');
     }
 
     function showForgotPassword(){
-        return view('ForgotPassword');
+        return view('auth.ForgotPassword');
     }
 
-    function showResetPasswordForm($token)
-    {
-        return view('ResetPassword', ['token' => $token]);
+    function showResetPasswordForm($token){
+        return view('auth.ResetPassword', ['token' => $token]);
     }
 
     function register(Request $request){
@@ -50,7 +49,7 @@ class AuthController extends Controller
             'verification_token' => Str::random(40), 
         ]);
 
-        Mail::send('EmailVerify', ['user' => $user], function ($message) use ($user) {
+        Mail::send('emails.EmailVerify', ['user' => $user], function ($message) use ($user) {
             $message->to($user->email);
             $message->subject("Verify your email");
         });
@@ -117,7 +116,7 @@ class AuthController extends Controller
     
         $user = User::where('email', $request->email)->first();
     
-        Mail::send('EmailResetPassword', ['user' => $user, 'token' => $token], function ($message) use ($user) {
+        Mail::send('emails.EmailResetPassword', ['user' => $user, 'token' => $token], function ($message) use ($user) {
             $message->to($user->email);
             $message->subject('Reset Your Password');
         });
