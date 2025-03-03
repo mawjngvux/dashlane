@@ -7,7 +7,7 @@
     <p class="text-lg text-gray-600 mt-4">Access your account securely and easily.</p>
 </div>
 
-<div class="w-1/4 flex flex-col justify-center px-10 py-6 relative">
+<div class="w-1/4 flex flex-col justify-center px-10 py-6 relative bg-gray-50">
     <div class="flex justify-end items-center space-x-2 absolute top-6 right-6">
         <p class="text-sm text-gray-600">Don't have an account?</p>
         <a href="{{route('showRegister')}}" class="bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition">Register</a>
@@ -49,30 +49,5 @@
         </div>
     </div>
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const emailInput = document.getElementById('exampleInputEmail1');
-    const passwordInput = document.getElementById('exampleInputPassword1');
-    const rememberMeCheckbox = document.getElementById('rememberMe');
-
-    if (localStorage.getItem('rememberMe') === 'true') {
-        emailInput.value = localStorage.getItem('email');
-        passwordInput.value = localStorage.getItem('password');
-        rememberMeCheckbox.checked = true;
-    }
-
-    document.getElementById('loginForm').addEventListener('submit', function() {
-        if (rememberMeCheckbox.checked) {
-            localStorage.setItem('email', emailInput.value);
-            localStorage.setItem('password', passwordInput.value);
-            localStorage.setItem('rememberMe', 'true');
-        } else {
-            localStorage.removeItem('email');
-            localStorage.removeItem('password');
-            localStorage.setItem('rememberMe', 'false');
-        }
-    });
-});
-</script>
+<script src="{{asset('js/Login.js')}}"></script>
 @endsection

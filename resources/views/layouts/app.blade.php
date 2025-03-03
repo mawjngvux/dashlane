@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="h-screen flex">
+    <div class="h-screen flex bg-gray-100">
         @yield('content')
     </div>
 </body>
