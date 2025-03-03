@@ -24,4 +24,15 @@ Route::get('/reset-password/{token}', [AuthController::class, 'showResetPassword
 Route::post('/reset-password', [AuthController::class, 'resetPassword'])->name('resetPassword');
 
 
-Route::get('/credentials', [CredentialsController::class, 'showCredentials'])->name('showCredentials')->middleware(AuthMiddleware::class);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/credentials', [CredentialsController::class, 'showCredentials'])->name('showCredentials');
+    Route::get('/passkeys', [CredentialsController::class, 'showPasskey'])->name('showPasskeys');
+    Route::get('/payments', [CredentialsController::class, 'showPayments'])->name('showPayments');
+    Route::get('/secure-notes', [CredentialsController::class, 'showSecureNotes'])->name('showSecureNotes');
+    Route::get('/personal-info', [CredentialsController::class, 'showPersonalInfo'])->name('showPersonalInfo');
+    Route::get('/ids', [CredentialsController::class, 'showIds'])->name('showIds');
+    Route::get('/sharing-center', [CredentialsController::class, 'showSharingCenter'])->name('showSharingCenter');
+    Route::get('/password-health', [CredentialsController::class, 'showPasswordHealth'])->name('showPasswordHealth');
+    Route::get('/darkweb-monitoring', [CredentialsController::class, 'showDarkwebMonitoring'])->name('showDarkwebMonitoring');
+    Route::get('/vpn', [CredentialsController::class, 'showVPN'])->name('showVPN');
+});
