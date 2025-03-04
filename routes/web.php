@@ -35,8 +35,14 @@ Route::post('/reset-password', [AuthController::class, 'resetPassword'])->name('
 
 
 Route::get('/credentials', [CredentialsController::class, 'showCredentials'])->name('showCredentials')->middleware(AuthMiddleware::class);
+Route::post('/credentials', [CredentialsController::class, 'store'])->name('Credentials.store')->middleware(AuthMiddleware::class);
+
+
 Route::get('/passkeys', [PasskeysController::class, 'showPasskeys'])->name('showPasskeys')->middleware(AuthMiddleware::class);
+
 Route::get('/payments', [PaymentsController::class, 'showPayments'])->name('showPayments')->middleware(AuthMiddleware::class);
+Route::post('/payments', [PaymentsController::class, 'store'])->name('Payments.store')->middleware(AuthMiddleware::class);
+
 Route::get('/securenotes', [SecureNotesController::class, 'showSecureNotes'])->name('showSecureNotes')->middleware(AuthMiddleware::class);
 Route::get('/darkwebmonitoring', [DarkWebMonitoringController::class, 'showDarkWebMonitoring'])->name('showDarkWebMonitoring')->middleware(AuthMiddleware::class);
 Route::get('/vpn', [VPNController::class, 'showVPN'])->name('showVPN')->middleware(AuthMiddleware::class);

@@ -2,23 +2,21 @@
 
 @section('page-content')
 
-@section('title', 'Passkeys')
+@section('title', 'Payments')
 @section('name', $name)
-@section('email', $email)
+@section('email', $email) 
 
-<div class="flex flex-col items-center justify-center h-96 rounded-lg ">
-    <i class="fa-solid fa-key text-6xl text-gray-400 mb-6"></i>
-    <h2 class="text-xl font-semibold mb-2">Manage your passkeys</h2>
-    <p class="text-gray-600 mb-4">Store and use your passkeys securely.</p>
-    <div class="flex gap-4">
-        <button class="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300">
-            <i class="fa-solid fa-file-import"></i> Import passkeys
-        </button>
-        <button onclick="openAddPasskeyForm()" class="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600">
-            <i class="fa-solid fa-plus"></i> Add passkey
-        </button>
+<main class="flex-1 p-6 bg-gray-100">
+    <div class="flex flex-col items-center justify-center h-96 border rounded-lg bg-gray-50">
+        <i class="fa-solid fa-key text-6xl text-gray-400 mb-6"></i>
+        <h2 class="text-xl font-semibold mb-2">Manage your passkeys</h2>
+        <p class="text-gray-600 mb-4">Store and use your passkeys securely.</p>
+        <div class="flex gap-4">
+            <button class="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300"><i class="fa-solid fa-file-import"></i> Import passkeys</button>
+            <button onclick="openAddPasskeyForm()" class="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600"><i class="fa-solid fa-plus"></i> Add passkey</button>
+        </div>
     </div>
-</div>
+</main>
 
 {{-- Backdrop --}}
 <div id="backdrop" class="fixed inset-0 bg-black/40 backdrop-blur-sm opacity-0 invisible transition-opacity duration-300 ease-out z-40"></div>
@@ -86,68 +84,5 @@
         </div>
     </div>
 </div>
-<script>
-let isFormDirty = false;
-
-function openAddPasskeyForm() {
-    const modal = document.getElementById('addPasskeyModal');
-    const backdrop = document.getElementById('backdrop');
-
-    modal.classList.remove('invisible', 'translate-x-full', 'opacity-0');
-    modal.classList.add('opacity-100');
-
-    backdrop.classList.remove('invisible', 'opacity-0');
-    backdrop.classList.add('opacity-100');
-
-    isFormDirty = false;
-
-    document.querySelectorAll('#addPasskeyModal input, #addPasskeyModal textarea').forEach(input => {
-        input.removeEventListener('input', markFormDirty);
-        input.addEventListener('input', markFormDirty);
-    });
-
-    window.addEventListener('beforeunload', confirmExit);
-}
-
-function markFormDirty() {
-    isFormDirty = true;
-}
-
-function forceCloseAddPasskeyForm() {
-    const modal = document.getElementById('addPasskeyModal');
-    const backdrop = document.getElementById('backdrop');
-
-    modal.classList.add('translate-x-full', 'opacity-0');
-    backdrop.classList.add('opacity-0');
-
-    setTimeout(() => {
-        modal.classList.add('invisible');
-        backdrop.classList.add('invisible');
-    }, 500);
-
-    isFormDirty = false;
-    window.removeEventListener('beforeunload', confirmExit);
-}
-
-function closeAddPasskeyForm() {
-    if (isFormDirty) {
-        if (confirm('You have unsaved changes. Are you sure you want to leave?')) {
-            forceCloseAddPasskeyForm();
-        }
-    } else {
-        forceCloseAddPasskeyForm();
-    }
-}
-
-    function markFormDirty() {
-    isFormDirty = true;
-    }
-function confirmExit(e) {
-    if (!isFormDirty) return;
-
-    e.preventDefault();
-    e.returnValue = '';
-}
-
-</script>
+<script src="js/Passkeys.js"></script>
 @endsection
