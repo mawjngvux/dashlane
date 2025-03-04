@@ -10,6 +10,6 @@ class DarkWebMonitoringController extends Controller
     function showDarkWebMonitoring(){
         $email = Auth::user()->email;
         $name = Auth::user()->name;
-        return view('pages.DarkWebMonitoring', ['email' => $email, 'name' => $name]);
+        return view('pages.DarkwebMonitoring', ['email' => $email, 'name' => $name]);
     }
 }
