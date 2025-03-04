@@ -38,7 +38,7 @@
             <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
                 <i class="fa-solid fa-user text-gray-600"></i>
             </div>
-            <h2 class="text-lg font-semibold text-gray-800">Add personal information</h2>
+            <h2 class="text-lg font-semibold text-gray-800">Add Email information</h2>
             <button onclick="forceCloseAddEmailForm()" class="ml-auto text-gray-500 hover:text-red-500">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
@@ -49,23 +49,14 @@
             <div>
                 <h3 class="text-sm font-semibold text-gray-700 mb-2">Personal details</h3>
                 <div class="space-y-4">
-                    <input type="text" placeholder="Full Name" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+                    <input type="text" placeholder="Email Address" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
 
-                    <input type="text" placeholder="Date of Birth" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+                    <input type="text" placeholder="Type" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
 
-                    <input type="text" placeholder="Email" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
-
-                    <input type="text" placeholder="Phone Number" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
-
-                    <input type="text" placeholder="Address" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+                    <input type="text" placeholder="Item Organization" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
 
                     <textarea placeholder="Note (optional)" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500"></textarea>
                 </div>
-            </div>
-
-            <div>
-                <h3 class="text-sm font-semibold text-gray-700 mb-2">Attachments</h3>
-                <input type="file" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
             </div>
         </div>
 
@@ -136,7 +127,7 @@
             <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
                 <i class="fa-solid fa-user text-gray-600"></i>
             </div>
-            <h2 class="text-lg font-semibold text-gray-800">Add a PhoneNumber</h2>
+            <h2 class="text-lg font-semibold text-gray-800">Add a Phone Number</h2>
             <button onclick="forceCloseAddPhoneNumberForm()" class="ml-auto text-gray-500 hover:text-red-500">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
