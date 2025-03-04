@@ -28,15 +28,20 @@
 {{-- Backdrop --}}
 <div id="backdrop" class="fixed inset-0 bg-black/40 backdrop-blur-sm opacity-0 invisible transition-opacity duration-300 ease-out z-40"></div>
 
-{{-- Modal Email --}}
+{{-- Modal Email--}}
 <div id="addPersonalInfoModalEmail" class="fixed top-0 right-0 w-96 h-full bg-white shadow-xl transform translate-x-full opacity-0 invisible transition-all duration-500 ease-out z-50 overflow-y-auto border-l border-gray-300">
     <div class="flex flex-col h-full">
 
         {{-- Header --}}
-        <div class="p-4 border-b flex items-center gap-3 bg-gray-50">
-            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center"><i class="fa-solid fa-user text-gray-600"></i></div>
-            <h2 class="text-lg font-semibold text-gray-800">Add an email address</h2>
-            <button onclick="forceCloseAddPersonalInfoForm()" class="ml-auto text-gray-500 hover:text-red-500"><i class="fa-solid fa-xmark text-xl"></i></button>
+        <div class="p-4 border
+        flex items-center gap-3 bg-gray-50">
+            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                <i class="fa-solid fa-user text-gray-600"></i>
+            </div>
+            <h2 class="text-lg font-semibold text-gray-800">Add personal information</h2>
+            <button onclick="forceCloseAddEmailForm()" class="ml-auto text-gray-500 hover:text-red-500">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
         </div>
         
         {{-- Form --}}
@@ -45,10 +50,15 @@
                 <h3 class="text-sm font-semibold text-gray-700 mb-2">Personal details</h3>
                 <div class="space-y-4">
                     <input type="text" placeholder="Full Name" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Date of Birth" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Email" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Phone Number" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Address" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <textarea placeholder="Note (optional)" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500"></textarea>
                 </div>
             </div>
@@ -61,21 +71,26 @@
 
         {{-- Footer --}}
         <div class="p-4 border-t bg-white flex justify-end gap-2">
-            <button onclick="forceCloseAddPersonalInfoForm()" class="bg-gray-100 px-4 py-2 rounded text-gray-700 hover:bg-gray-200">Cancel</button>
+            <button onclick="forceCloseAddEmailForm()" class="bg-gray-100 px-4 py-2 rounded text-gray-700 hover:bg-gray-200">Cancel</button>
             <button class="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600">Save</button>
         </div>
     </div>
 </div>
 
-{{-- Modal Name --}}
+{{-- Modal Name--}}
 <div id="addPersonalInfoModalName" class="fixed top-0 right-0 w-96 h-full bg-white shadow-xl transform translate-x-full opacity-0 invisible transition-all duration-500 ease-out z-50 overflow-y-auto border-l border-gray-300">
     <div class="flex flex-col h-full">
 
         {{-- Header --}}
-        <div class="p-4 border-b flex items-center gap-3 bg-gray-50">
-            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center"><i class="fa-solid fa-user text-gray-600"></i></div>
+        <div class="p-4 border
+        flex items-center gap-3 bg-gray-50">
+            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                <i class="fa-solid fa-user text-gray-600"></i>
+            </div>
             <h2 class="text-lg font-semibold text-gray-800">Add a name</h2>
-            <button onclick="forceCloseAddPersonalInfoForm()" class="ml-auto text-gray-500 hover:text-red-500"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <button onclick="forceCloseAddNameForm()" class="ml-auto text-gray-500 hover:text-red-500">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
         </div>
         
         {{-- Form --}}
@@ -84,10 +99,15 @@
                 <h3 class="text-sm font-semibold text-gray-700 mb-2">Personal details</h3>
                 <div class="space-y-4">
                     <input type="text" placeholder="Full Name" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Date of Birth" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Email" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Phone Number" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Address" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <textarea placeholder="Note (optional)" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500"></textarea>
                 </div>
             </div>
@@ -100,21 +120,26 @@
 
         {{-- Footer --}}
         <div class="p-4 border-t bg-white flex justify-end gap-2">
-            <button onclick="forceCloseAddPersonalInfoForm()" class="bg-gray-100 px-4 py-2 rounded text-gray-700 hover:bg-gray-200">Cancel</button>
+            <button onclick="forceCloseAddNameForm()" class="bg-gray-100 px-4 py-2 rounded text-gray-700 hover:bg-gray-200">Cancel</button>
             <button class="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600">Save</button>
         </div>
     </div>
 </div>
 
-{{-- Modal Phone Number --}}
+{{-- Modal Phone Number--}}
 <div id="addPersonalInfoModalPhoneNumber" class="fixed top-0 right-0 w-96 h-full bg-white shadow-xl transform translate-x-full opacity-0 invisible transition-all duration-500 ease-out z-50 overflow-y-auto border-l border-gray-300">
     <div class="flex flex-col h-full">
 
         {{-- Header --}}
-        <div class="p-4 border-b flex items-center gap-3 bg-gray-50">
-            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center"><i class="fa-solid fa-user text-gray-600"></i></div>
-            <h2 class="text-lg font-semibold text-gray-800">Add a phone number</h2>
-            <button onclick="forceCloseAddPersonalInfoForm()" class="ml-auto text-gray-500 hover:text-red-500"><i class="fa-solid fa-xmark text-xl"></i></button>
+        <div class="p-4 border
+        flex items-center gap-3 bg-gray-50">
+            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                <i class="fa-solid fa-user text-gray-600"></i>
+            </div>
+            <h2 class="text-lg font-semibold text-gray-800">Add a PhoneNumber</h2>
+            <button onclick="forceCloseAddPhoneNumberForm()" class="ml-auto text-gray-500 hover:text-red-500">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
         </div>
         
         {{-- Form --}}
@@ -123,10 +148,15 @@
                 <h3 class="text-sm font-semibold text-gray-700 mb-2">Personal details</h3>
                 <div class="space-y-4">
                     <input type="text" placeholder="Full Name" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Date of Birth" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Email" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Phone Number" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Address" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <textarea placeholder="Note (optional)" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500"></textarea>
                 </div>
             </div>
@@ -139,21 +169,26 @@
 
         {{-- Footer --}}
         <div class="p-4 border-t bg-white flex justify-end gap-2">
-            <button onclick="forceCloseAddPersonalInfoForm()" class="bg-gray-100 px-4 py-2 rounded text-gray-700 hover:bg-gray-200">Cancel</button>
+            <button onclick="forceCloseAddPhoneNumberForm()" class="bg-gray-100 px-4 py-2 rounded text-gray-700 hover:bg-gray-200">Cancel</button>
             <button class="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600">Save</button>
         </div>
     </div>
 </div>
 
-{{-- Modal Address --}}
+{{-- Modal Address--}}
 <div id="addPersonalInfoModalAddress" class="fixed top-0 right-0 w-96 h-full bg-white shadow-xl transform translate-x-full opacity-0 invisible transition-all duration-500 ease-out z-50 overflow-y-auto border-l border-gray-300">
     <div class="flex flex-col h-full">
 
         {{-- Header --}}
-        <div class="p-4 border-b flex items-center gap-3 bg-gray-50">
-            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center"><i class="fa-solid fa-user text-gray-600"></i></div>
-            <h2 class="text-lg font-semibold text-gray-800">Add an address</h2>
-            <button onclick="forceCloseAddPersonalInfoForm()" class="ml-auto text-gray-500 hover:text-red-500"><i class="fa-solid fa-xmark text-xl"></i></button>
+        <div class="p-4 border
+        flex items-center gap-3 bg-gray-50">
+            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                <i class="fa-solid fa-user text-gray-600"></i>
+            </div>
+            <h2 class="text-lg font-semibold text-gray-800">Add a Address</h2>
+            <button onclick="forceCloseAddAddressForm()" class="ml-auto text-gray-500 hover:text-red-500">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
         </div>
         
         {{-- Form --}}
@@ -162,10 +197,15 @@
                 <h3 class="text-sm font-semibold text-gray-700 mb-2">Personal details</h3>
                 <div class="space-y-4">
                     <input type="text" placeholder="Full Name" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Date of Birth" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Email" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Phone Number" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Address" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <textarea placeholder="Note (optional)" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500"></textarea>
                 </div>
             </div>
@@ -178,21 +218,26 @@
 
         {{-- Footer --}}
         <div class="p-4 border-t bg-white flex justify-end gap-2">
-            <button onclick="forceCloseAddPersonalInfoForm()" class="bg-gray-100 px-4 py-2 rounded text-gray-700 hover:bg-gray-200">Cancel</button>
+            <button onclick="forceCloseAddAddressForm()" class="bg-gray-100 px-4 py-2 rounded text-gray-700 hover:bg-gray-200">Cancel</button>
             <button class="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600">Save</button>
         </div>
     </div>
 </div>
 
-{{-- Modal Company --}}
+{{-- Modal Company--}}
 <div id="addPersonalInfoModalCompany" class="fixed top-0 right-0 w-96 h-full bg-white shadow-xl transform translate-x-full opacity-0 invisible transition-all duration-500 ease-out z-50 overflow-y-auto border-l border-gray-300">
     <div class="flex flex-col h-full">
 
         {{-- Header --}}
-        <div class="p-4 border-b flex items-center gap-3 bg-gray-50">
-            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center"><i class="fa-solid fa-user text-gray-600"></i></div>
-            <h2 class="text-lg font-semibold text-gray-800">Add a company</h2>
-            <button onclick="forceCloseAddPersonalInfoForm()" class="ml-auto text-gray-500 hover:text-red-500"><i class="fa-solid fa-xmark text-xl"></i></button>
+        <div class="p-4 border
+        flex items-center gap-3 bg-gray-50">
+            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                <i class="fa-solid fa-user text-gray-600"></i>
+            </div>
+            <h2 class="text-lg font-semibold text-gray-800">Add a Company</h2>
+            <button onclick="forceCloseAddCompanyForm()" class="ml-auto text-gray-500 hover:text-red-500">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
         </div>
         
         {{-- Form --}}
@@ -201,10 +246,15 @@
                 <h3 class="text-sm font-semibold text-gray-700 mb-2">Personal details</h3>
                 <div class="space-y-4">
                     <input type="text" placeholder="Full Name" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Date of Birth" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Email" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Phone Number" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Address" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <textarea placeholder="Note (optional)" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500"></textarea>
                 </div>
             </div>
@@ -217,21 +267,26 @@
 
         {{-- Footer --}}
         <div class="p-4 border-t bg-white flex justify-end gap-2">
-            <button onclick="forceCloseAddPersonalInfoForm()" class="bg-gray-100 px-4 py-2 rounded text-gray-700 hover:bg-gray-200">Cancel</button>
+            <button onclick="forceCloseAddCompanyForm()" class="bg-gray-100 px-4 py-2 rounded text-gray-700 hover:bg-gray-200">Cancel</button>
             <button class="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600">Save</button>
         </div>
     </div>
 </div>
 
-{{-- Modal Website --}}
+{{-- Modal Website--}}
 <div id="addPersonalInfoModalWebsite" class="fixed top-0 right-0 w-96 h-full bg-white shadow-xl transform translate-x-full opacity-0 invisible transition-all duration-500 ease-out z-50 overflow-y-auto border-l border-gray-300">
     <div class="flex flex-col h-full">
 
         {{-- Header --}}
-        <div class="p-4 border-b flex items-center gap-3 bg-gray-50">
-            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center"><i class="fa-solid fa-user text-gray-600"></i></div>
-            <h2 class="text-lg font-semibold text-gray-800">Add a website</h2>
-            <button onclick="forceCloseAddPersonalInfoForm()" class="ml-auto text-gray-500 hover:text-red-500"><i class="fa-solid fa-xmark text-xl"></i></button>
+        <div class="p-4 border
+        flex items-center gap-3 bg-gray-50">
+            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                <i class="fa-solid fa-user text-gray-600"></i>
+            </div>
+            <h2 class="text-lg font-semibold text-gray-800">Add a Website</h2>
+            <button onclick="forceCloseAddWebsiteForm()" class="ml-auto text-gray-500 hover:text-red-500">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
         </div>
         
         {{-- Form --}}
@@ -240,10 +295,15 @@
                 <h3 class="text-sm font-semibold text-gray-700 mb-2">Personal details</h3>
                 <div class="space-y-4">
                     <input type="text" placeholder="Full Name" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Date of Birth" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Email" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Phone Number" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <input type="text" placeholder="Address" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500">
+
                     <textarea placeholder="Note (optional)" class="w-full p-2 border rounded focus:ring-teal-500 focus:border-teal-500"></textarea>
                 </div>
             </div>
@@ -256,12 +316,10 @@
 
         {{-- Footer --}}
         <div class="p-4 border-t bg-white flex justify-end gap-2">
-            <button onclick="forceCloseAddPersonalInfoForm()" class="bg-gray-100 px-4 py-2 rounded text-gray-700 hover:bg-gray-200">Cancel</button>
+            <button onclick="forceCloseAddWebsiteForm()" class="bg-gray-100 px-4 py-2 rounded text-gray-700 hover:bg-gray-200">Cancel</button>
             <button class="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600">Save</button>
         </div>
     </div>
 </div>
-
-
 <script src="js/PersonalInfo.js"></script>
 @endsection

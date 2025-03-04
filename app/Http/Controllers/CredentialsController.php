@@ -11,7 +11,7 @@ class CredentialsController extends Controller
     function showCredentials(){
         $email = Auth::user()->email;
         $name = Auth::user()->name;
-        $passwords = Password::all();
+        $passwords = Password::where('user_id', Auth::user()->id)->get();
         return view('pages.Credentials', ['email' => $email, 'name' => $name], ['passwords' => $passwords]);
     }
 
